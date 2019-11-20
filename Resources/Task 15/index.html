@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="home-backg">
+
+<head>
+    <title>Cans Addict</title>
+    <!--Bootstrap CSS Link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--My CSS Link-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--My jquery Link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+</head>
+<!--Navbar taken from Bootstrap-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Cans Addict</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+             <!--Contact Section of Nav-->
+            <li class="nav-item">
+                <div id="call">
+                <img src="images/phone.png" alt="Phone Icon" height="27"><p >011 123 456</p>
+            </div><!--call div closed-->
+            <li class="nav-item">
+                 <div id="email">
+                <img src="images/email.png" alt="Email icon" height="37"><p id="email">Email Us</p>
+            </div><!--email div closed-->
+            </li>
+            <!--Browsing Section of Nav-->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shopping_cart.html">Cart</a>
+            </li>
+           
+            <!--Social Media Section of Nav-->
+            <li class="nav-item">
+                <div id="social-media">
+                <a class="nav-link" href="https://www.facebook.com/">
+                    <img class="icon" src="images/facebook.png" target="_blank" alt="Facebook Profile" width="35">
+                    <span class="sr-only">(current)</span>
+            </a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.instagram.com/">
+                    <img class="icon" src="images/instagram2.png" target="_blank" alt="Instagram Profile" width="35">
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.pinterest.com/">
+                    <img class="icon" src="images/pin.png" target="_blank" alt="Pinterest Profile" width="35">
+                    <span class="sr-only">(current)</span>
+                </a>
+                 </div><!--social-media div close-->
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <body id="home-backg" onload="loadFunction()">
+        <!--Welcoming Section-->
+        <h1 id="indexHeading">Cans Addict</h1>
+         <!--Welcome Photos-->
+         <div id="picBox">
+        <img class="welcome-pics" src=images/girl.jpg alt="Photo by Element5 Digital on Unsplash">
+        <img class="welcome-pics" src=images/marsh.jpg alt="Photo by Kobu Agency on Unsplash">
+        <img class="welcome-pics" src=images/bridge.jpg alt="Photo by Devon Divine on Unsplash">
+    </div>
+        
+        <h2 class="bigHeading"> Welcome to the home of Cans Addict, where listening to music gets taken seriously! </h2>
+
+        <!--Selling info-->
+        <h4 class = "sellInfo"> We are a fully independant importer and supplier of world-class headphones and we deliver directly to you free of charge. <br>
+            Give us a piece of your mind and always remember to protect your ears!
+        </h4> 
+        <!--Drop-down Menu-->
+        <h2 class="bigHeading" onmouseover="dropDown()">What sets us apart from buying directly from manufacturers?</h2>
+        <p class="promise sellInfo" style="display:none">We take pride in giving expert advice when it comes to choosing your very first or even
+        your next pair of headphones. We are not baised by a particular brand and we can recommend the best suited studio professional headphones
+        according to your needs and dreams. Feel free to call us or email us and reach out to us on social media.<br><br>
+        When you buy a set of headphones from us, we adhere to very strict deadlines as well as
+        a non-damage protocol whenever we ship our products from one branch or another, and to your doorstep.</p>
+
+<!--Footer Section-->
+<section id="footer-section">
+<!--Social Media Links Section-->
+<div id = "icons">
+            <a class="icon-link" href="https://www.facebook.com/"><img class="icon" src="images/fb.png" target="_blank" alt="Facebook Profile"></a>
+            <a class="icon-link" href="https://www.instagram.com/"><img class="icon" src="images/insta.png" target="_blank" alt="Instagram Profile"></a>
+            <a class="icon-link" href="https://www.pinterest.com/"><img class="icon" src="images/pin3.png" target="_blank" alt="Pinterest Profile"></a> 
+        </div><!--div icon close-->
+            <p>This website is drafted by Talitha Kruger and all the content herein is used for purely demonstrative purposes. 
+    Should you like what you see, feel free to <a href="mailto:mailto:talkruger9@gmail.com">email me</a></p>
+  
+</section>
+</body>
+<!--Script Tag for my JS-->
+<script type="text/javascript" src="cart.js"></script>
+</html>

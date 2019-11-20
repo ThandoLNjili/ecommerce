@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shopping Cart</title>
+    <!--Bootstrap Linking-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--My CSS Link-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--My jquery Link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+</head>
+
+<body id="shipping-backg" onload="getCart()">
+    <!--Navbar taken from Bootstrap-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Cans Addict</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!--Contact Section of Nav-->
+                <li class="nav-item">
+                    <div id="call">
+                        <img src="images/phone.png" alt="Phone Icon" height="27">
+                        <p>011 123 456</p>
+                    </div>
+                    <!--call div closed-->
+                <li class="nav-item">
+                    <div id="email">
+                        <img src="images/email.png" alt="Email icon" height="37">
+                        <p id="email">Email Us</p>
+                    </div>
+                    <!--email div closed-->
+                </li>
+                <!--Browsing Section of Nav-->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shopping_cart.html">Cart</a>
+                </li>
+                <!--Social Media Section of Nav-->
+                <li class="nav-item">
+                    <div id="social-media">
+                        <a class="nav-link" href="https://www.facebook.com/">
+                            <img class="icon" src="images/facebook.png" target="_blank" alt="Facebook Profile" width="35">
+                            <span class="sr-only">(current)</span>
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/">
+                        <img class="icon" src="images/instagram2.png" target="_blank" alt="Instagram Profile" width="35">
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.pinterest.com/">
+                        <img class="icon" src="images/pin.png" target="_blank" alt="Pinterest Profile" width="35">
+                        <span class="sr-only">(current)</span>
+                    </a>
+        </div>
+        <!--social-media div close-->
+        </li>
+        </ul>
+    </nav>
+    <!--Navbar close-->
+    <!--Shopping Cart Details-->
+    <h2 id="cartHeading">Your Cart:</h2>
+    <!--Shopping Cart Contents-->
+    <div id="cartOutput"></div>
+    <!--Shopping Cart Total-->
+    <div id="cartPriceOutput"></div>
+    <!--Order Collection/Delivery Details-->
+    <h2 class="firstBigHeading">Please select how you would like to receive your headphones:</h2>
+    <div id="orderOptions" class="radioBtn-box">
+        <!--Order Collection Radio Button which, if clicked, triggers the collect form to be shown-->
+        <input id="collect" type="radio" onclick="showCollectForm()"> Collection (R15.00)</input>
+        <!--Order Delivery Radio Button which, if clicked, triggers the delivery form to be shown-->
+        <input id="deliver" type="radio" onclick="showDeliverForm()"> Delivery(R180.00)</input>
+    </div>
+    <br>
+
+    <!--Collect Option section-->
+
+
+    <!--If the user has chosen the collect option, the below div is shown:-->
+    <div id="collectChoice" class="orderText">
+        <!--Form which asks the user which branch they wish to collect their headphones from-->
+        <p>You have chosen the collection option which costs R15.00 which will be added automatically onto your order.</p>
+        <p>Please fill out and submit the form below so that we can email you on the progress of your order:</p>
+        <br>
+        <div class="form-group row">
+            <label for="fullName" class="col-sm-3 col-form-label">First and Last Name</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="fullName" placeholder="John Smith">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-3">
+                <input type="email" class="form-control" id="inputEmail" placeholder="example@place.com">
+            </div>
+        </div>
+        <br>
+        <div style="text-align: left; padding-left: 100px;">
+            <p>Please select the branch you would like to collect your order from:</p>
+            <input type="radio" name="sandton" value="sandton"> Sandton Shop 14 Corlett Drive</input><br>
+            <input type="radio" name="randburg" value="randburg"> Randburg Sundowners Square Shopping Centre Shop 26</input><br>
+            <input type="radio" name="joburg" value="joburg"> Johannesburg Braamfontein 35 Southwest Street</input><br><br>
+            <div class="radioBtn-box"><button type="submit">Submit Branch Collection</button></div>
+            <h1 class="firstBigHeading">If you have a discount coupon, please enter the code:</h1>
+            <div class="radioBtn-box">
+                <input id="coupon" type="text"></input><button id="submit">Apply Coupon</button>
+            </div>
+            <!--Radio buttons/ payment method Implementation-->
+            <h1 class="firstBigHeading">Please select your payment method</h1>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/debit.png"> Maestro Debit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/credit.png"> Visa Credit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/amex.png"> American Express
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"> <input type="radio" name="radio"> <img width="100px" src="images/eft.png"> Electronic Transfer
+                <span class="checkmark"></span>
+            </label>
+            <br>
+           <button class="confirmBtn radioBtn-box shadow p-2 btn-dark" type="button" onclick="confirmIt()">Confirm Order</button>
+            <br>
+        </div>
+    </div>
+     </div>
+      </div>
+    <!--CollectChoice div close-->
+
+
+    <!--Delivery Option section-->
+
+
+    <div id="deliverChoice" class="orderText">
+        <p>You have chosen the collection option which costs R180.00 which will be added onto your order</p>
+        <!--Form which asks the user which address they would like to have their headphones delivered to, as well as contact details-->
+        <p class="firstBigHeading">Please fill out and submit the form below so that we know where to deliver to:</p>
+        <form id="deliver-form">
+            <div class="form-group row">
+                <label for="fullName" class="col-sm-2 col-form-label">First and Last Name</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="fullName" placeholder="John Smith">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cellNumber" class="col-sm-2 col-form-label">Cellphone Number</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" id="cellNumber" placeholder="012 123 6589">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="example@place.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="deliverAddress" class="col-sm-2 col-form-label">Physical Address</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="deliverAddress" placeholder="Address">
+                    <br><br>
+                    <p class="orderText" style="display:block;">Please note that standard delivery time is between 3 and 5 business days.</p><br>
+                    <button class="btn btn-dark shadow p-2 radioBtn-box">Submit</button><br>
+                </div>
+            </div>
+        </form>
+        <!--Radio buttons/ payment method Implementation-->
+        <div style="text-align: left; padding-left: 100px;">
+            <h1 class="firstBigHeading">Please select your payment method</h1>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/debit.png"> Maestro Debit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/credit.png"> Visa Credit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"><input type="radio" name="radio"> <img src="images/amex.png"> American Express
+                <span class="checkmark"></span>
+            </label>
+            <label class="container payment"> <input type="radio" name="radio"> <img width="100px" src="images/eft.png"> Electronic Transfer
+                <span class="checkmark"></span>
+            </label>
+        </div><!--div styling close-->
+        <br>
+        <button class="confirmBtn radioBtn-box shadow p-2 btn-dark" type="button" onclick="confirmIt()">Confirm Order</button>
+        <br>
+    </div> <!--deliverchoice div close-->
+
+   
+    <!--Image with applied color filter-->
+    <img id="beats" src="images/beats.jpg" alt="Apple Beats Headphones">
+    <br><br>
+    <!--Footer Section-->
+    <section id="footer-section">
+        <!--Social Media Links Section-->
+        <div id="icons">
+            <a class="icon-link" href="https://www.facebook.com/"><img class="icon" src="images/fb.png" target="_blank" alt="Facebook Profile"></a>
+            <a class="icon-link" href="https://www.instagram.com/"><img class="icon" src="images/insta.png" target="_blank" alt="Instagram Profile"></a>
+            <a class="icon-link" href="https://www.pinterest.com/"><img class="icon" src="images/pin3.png" target="_blank" alt="Pinterest Profile"></a>
+        </div>
+        <!--div icon close-->
+        <p>This website is built by Talitha Kruger and all the content herein is used for purely demonstrative purposes.
+            Should you like what you see, feel free to <a href="mailto:talkruger9@gmail.com">email me</a></p>
+    </section>
+</body>
+<script type="text/javascript" src="cart.js"></script>
+
+</html>

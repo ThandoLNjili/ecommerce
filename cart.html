@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Sublime Cart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+<body onload="addCart()">
+    <!-- Bootstrap Nav Bar -->
+    <header class="header">
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo"><a href="index.html">Sublime.</a></div>
+                            <nav class="main_nav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header_extra ml-auto">
+                                <div class="shopping_cart">
+                                    <a style="color: black;" href="cart.html">
+                                        <i class="fa fa-shopping-cart" style="font-size:24px;"></i>
+                                        <div>Cart</div>
+                                    </a>
+                                </div>
+                                <div class="search">
+                                    <div class="search_icon">
+                                        <i class="fa fa-search" style="font-size:24px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="text-center">
+        <h2>Your Cart</h2>
+        <div id="cartContent"></div>
+        <div id="cartTotal"></div>
+        <div id="orderOption" class="radioBtn-box">
+            <h2>Collection or delivery?</h2>
+            <input id='collect' type='radio' onclick="collectionForm()">Collection</input>
+            <input id='deliver' type="radio" onclick="deliveryForm()">Delivery (R180)</input>
+        </div>
+
+        <div id="collection">
+            <p>You have opted to collect your device.</p>
+            <p>Fill in the following form to receive an email on the progress of your order</p>
+            <br>
+            <div class="form-group row">
+                <label for="fullname" class="col-sm-3 col-form-label">First and Last Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="fullname" placeholder="Jane Doe">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="email" placeholder="example@place.com">
+                </div>
+            </div>
+
+            <div style="text-align: left; padding-left: 100px;">
+                <p>Please select the branch you would like to collect your order from:</p>
+                <input type="radio" name="joburg" value="Johannesburg"> Johannesburg Warehouse </input><br>
+                <input type="radio" name="cape town" value="cape town">Cape Town Warehouse</input><br><br>
+                <div class="radioBtn-box"><button type="submit">Submit Branch Collection</button></div>
+                <h1>If you have a discount coupon, please enter the code:</h1>
+                <div class="radioBtn-box">
+                    <input id="coupon" type="text"></input><button id="submit">Apply Coupon</button>
+                </div>
+                <h1>Please select your payment method</h1>
+                <label class="container"><input type="radio" name="radio">Maestro Debit
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container"><input type="radio" name="radio">Visa Credit
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container"><input type="radio" name="radio">American Express
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container"> <input type="radio" name="radio">Electronic Transfer
+                    <span class="checkmark"></span>
+                </label>
+                <br>
+                <button class="radioBtn-box shadow p-2 btn-dark" type="button" onclick="confirmOrder()">Confirm
+                    Order</button>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="delivery">
+        <p>You have opted for delivery. A delivery fee of R180 will be added</p>
+        <p>Fill in the following form to so that we can deliver the device to you.</p>
+        <br>
+        <div class="form-group row">
+            <label for="fullname" class="col-sm-3 col-form-label">First and Last Name</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="fullname" placeholder="Jane Doe">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="contact" class="col-sm-3 col-form-label">Contact Number</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="contact" placeholder="012 345 6789">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="email" placeholder="example@place.com">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Address" class="col-sm-2 col-form-label">Delivery Address</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="Address" placeholder="Address">
+                <br><br>
+                <p style="display:block;">Please note that standard delivery time is between 3 and 5
+                    business days.</p><br>
+                <button class="btn btn-dark shadow p-2 radioBtn-box">Submit</button><br>
+            </div>
+        </div>
+
+        <div style="text-align: left; padding-left: 100px;">
+            <h1>If you have a discount coupon, please enter the code:</h1>
+            <div class="radioBtn-box">
+                <input id="coupon" type="text"></input><button id="submit">Apply Coupon</button>
+            </div>
+            <h1>Please select your payment method</h1>
+            <label class="container"><input type="radio" name="radio">Maestro Debit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><input type="radio" name="radio">Visa Credit
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><input type="radio" name="radio">American Express
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"> <input type="radio" name="radio">Electronic Transfer
+                <span class="checkmark"></span>
+            </label>
+            <br>
+            <button class="radioBtn-box shadow p-2 btn-dark" type="button" onclick="confirmOrder()">Confirm
+                Order</button>
+            <br>
+        </div>
+    </div>
+    </div>
+
+    <!-- <footer id="footer">
+        <div id="footerDiv">
+            <i class="fa fa-copyright"> 2019 | Thandolwethu Njili</i>
+        </div>
+    </footer> -->
+</body>
+<script type="text/javascript" src="cart.js"></script>
+
+</html>
